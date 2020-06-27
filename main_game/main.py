@@ -7,11 +7,15 @@ from buttons import Buttons
 import math
 from sec_round import main1
 import random
+import sys
 
 pygame.init()
 
-screen_settings = Screen()
-screen = pygame.display.set_mode((screen_settings.screen_width, screen_settings.screen_height))
+screen_width = 800
+screen_height = 600
+bg_color = (255, 255, 255)
+home_image = pygame.image.load("../Assets/Foundation (d2) - Copy/57.jpg")
+screen = pygame.display.set_mode((screen_width, screen_height))
 FPS = 57
 
 screen = pygame.display.set_mode()
@@ -20,8 +24,7 @@ play_button = pygame.Rect(325, 500, 150, 50)
 #play = Buttons((325, 250))
 #play.load_image("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png")
 clock = pygame.time.Clock()
-screen_width = 800
-screen_height = 600
+
 def ball_animation():
     global ball_speed_x, ball_speed_y, ball_angle, lives, i
     ball.x += ball_speed_x
@@ -91,7 +94,7 @@ wall = pygame.Rect(screen_width / 120 * 60, screen_height * 66/100, screen_width
 ball = pygame.Rect(screen_width / 120 * 30.4,screen_height / 80 * 64,15 ,15)
 line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 
-launcher = pygame.image.load('../Assets/Projectile Launcher.png')
+launcher = pygame.image.load('../Assets/Projectile Launcher.png').convert_alpha()
 #launcher.set_colorkey((0,0,0))
 background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
 
@@ -126,6 +129,7 @@ light_grey = (200,200,200)
 
 font = pygame.font.SysFont("comicsans", 30, True)
 '''
+
 
 def load_images(path):
     images = []
@@ -167,7 +171,7 @@ def main():
 
             
             
-            screen.fill(screen_settings.bg_color)
+            screen.fill(bg_color)
             all_sprites.draw(screen)
             pygame.display.update()
             clock.tick(100)
@@ -175,7 +179,7 @@ def main():
                 running = False
                 break
         
-        screen.blit(screen_settings.home_image, (0, 0))
+        screen.blit(home_image, (0, 0))
         screen.blit(play, [115, 300])
         pygame.display.update()
         
@@ -187,8 +191,8 @@ def main():
                     pos = pygame.mouse.get_pos()
                     ## check if cursor is on button ##
                     if play_button.collidepoint(pos):
-                        playing=False
-                        break
+                        playing=False            
+                        break                   
 
                         #Group all of Ryan's code as a function and call it when mouse is pressed
         #main1(screen, screen_settings.bg_color, clock)
@@ -244,7 +248,7 @@ def main():
             ball_speed_y += gravity/60  
             
             #Visuals
-            screen.fill(screen_settings.bg_color)
+            screen.fill(bg_color)
             screen.blit(background, (0,0))
             screen.blit(target, (screen_width * i/48, screen_height * 36/40))
             target_rect = pygame.Rect(screen_width * i/48, screen_height * 69/72, target.get_width(), 2)
