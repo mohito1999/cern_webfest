@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_settings.screen_width, screen_settings.
 FPS = 57
 
 screen = pygame.display.set_mode()
-play = pygame.image.load("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png").convert_alpha()
+play = pygame.image.load("../Assets/Buttons/Play-Button.png").convert_alpha()
 play_button = pygame.Rect(325, 500, 150, 50)
 #play = Buttons((325, 250))
 #play.load_image("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png")
@@ -52,7 +52,7 @@ def load_images(path):
 
 
 def main():
-    images = load_images(path="/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Foundation (d2) - copy")  # Make sure to provide the relative or full path to the images directory.
+    images = load_images(path="../Assets/Foundation (d2) - copy")  # Make sure to provide the relative or full path to the images directory.
     player = AnimatedSprite(position=(0, 0), images=images)
     all_sprites = pygame.sprite.Group(player)  # Creates a sprite group and adds 'player' to it.
 

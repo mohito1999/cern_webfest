@@ -8,7 +8,7 @@ wall = pygame.Rect(screen_width / 120 * 60, screen_height * 66/100, screen_width
 ball = pygame.Rect(screen_width / 120 * 30.4,screen_height / 80 * 64,15 ,15)
 line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 
-target = pygame.image.load('/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Target(1).png')
+target = pygame.image.load('../Assets/Target(1).png')
 target_rect = pygame.Rect(screen_width * i/48, screen_height * 70/72, target.get_width() - 2, 1)
 
 
