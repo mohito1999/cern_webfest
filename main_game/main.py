@@ -3,6 +3,7 @@ import os
 import pygame
 from game_settings import Screen
 from animsprite import AnimatedSprite
+from buttons import Buttons
 
 pygame.init()
 
@@ -11,6 +12,10 @@ screen = pygame.display.set_mode((screen_settings.screen_width, screen_settings.
 FPS = 57
 
 screen = pygame.display.set_mode()
+play = pygame.image.load("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png").convert_alpha()
+play_button = pygame.Rect(325, 500, 150, 50)
+#play = Buttons((325, 250))
+#play.load_image("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png")
 clock = pygame.time.Clock()
 
 
@@ -49,7 +54,6 @@ def main():
                     pygame.quit()
                     sys.exit()
                     
-                
 
             all_sprites.update(dt)  # Calls the 'update' method on all sprites in the list (currently just the player).
 
@@ -62,16 +66,48 @@ def main():
             if player.index == 56:
                 running = False
                 break
-                
         
         screen.blit(screen_settings.home_image, (0, 0))
-        pygame.display.flip()
+        screen.blit(play, [115, 300])
+        pygame.display.update()
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    ## if mouse is pressed get position of cursor ##
+                    pos = pygame.mouse.get_pos()
+                    ## check if cursor is on button ##
+                    if play_button.collidepoint(pos):
+                        #Group all of Ryan's code as a function and call it when mouse is pressed
+                        return
+        
+        
 
    
 main()
 
+'''
+def test():
+    pygame.init()
+    screen = pygame.display.set_mode((770,430))
+    pygame.mouse.set_visible(1)
+    background = pygame.Surface(screen.get_size())
+    background = background.convert()
+    background.fill((250,250,250))
+    screen.blit(background, (0,0))
+    pygame.display.flip()
+
+    ## set-up screen in these lines above ##
+
+    button = pygame.image.load('Pictures/cards/stand.png').convert_alpha()
+    b = screen.blit(button, (300, 200))
+    pygame.display.flip()
+
+    ## does button need to be 'pygame.sprite.Sprite for this? ##
+    ## I use 'get_rect() ##
     
 
-
+    ## loop to check for mouse action and its position ##
+   ''' 
 
 
