@@ -1,9 +1,10 @@
 import ball_animations as ba
 import pygame
 import sys
+import math
 
 pygame.init()
-clock = pygame.time.Clock()
+
 screen_width = 800
 screen_height = 600
 i=35
@@ -30,7 +31,7 @@ ball_velocity = 1
 gravity = 9.8
 lives = 3
 
-def main1(screen1, color_select):
+def main1(screen1, color_select, clockSelec):
     while True:
         #return
         
@@ -98,6 +99,7 @@ def main1(screen1, color_select):
         #Launcher Animation
         launcher_copy = pygame.transform.rotate(launcher, -1 * ball_angle)
         screen1.blit(launcher_copy, (screen_width / 120 * 27 - int(launcher_copy.get_width() / 4), screen_height / 120 * 95 - int(launcher_copy.get_height() /2)))
-
+        
         pygame.display.flip()
-        clock.tick(60)
+        clockSelec.tick(60)
+        
