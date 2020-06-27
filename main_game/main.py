@@ -4,6 +4,8 @@ import pygame
 from game_settings import Screen
 from animsprite import AnimatedSprite
 from buttons import Buttons
+import math
+from sec_round import main1
 
 pygame.init()
 
@@ -17,7 +19,23 @@ play_button = pygame.Rect(325, 500, 150, 50)
 #play = Buttons((325, 250))
 #play.load_image("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png")
 clock = pygame.time.Clock()
+'''
+ball = pygame.Rect(304,640,20 ,20)
+line = pygame.Rect(280,650,50, 3)
+gravity = 9.8
+'''
+'''
+#Graphics
+launcher = pygame.image.load('/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Projectile Launcher.png')
+#launcher.set_colorkey((0,0,0))
+background = pygame.image.load('/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Challenge Room1.jpg')
+#launcher.set_alpha(100)
 
+bg_color = pygame.Color('grey12')
+light_grey = (200,200,200)
+
+font = pygame.font.SysFont("comicsans", 30, True)
+'''
 
 def load_images(path):
     images = []
@@ -79,7 +97,7 @@ def main():
                     ## check if cursor is on button ##
                     if play_button.collidepoint(pos):
                         #Group all of Ryan's code as a function and call it when mouse is pressed
-                        return
+                        main1(screen, screen_settings.bg_color)
         
         
 

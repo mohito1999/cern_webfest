@@ -10,7 +10,7 @@ class AnimatedSprite(pygame.sprite.Sprite):
             position: x, y coordinate on the screen to place the AnimatedSprite.
             images: Images to use in the animation.
         """
-        super(AnimatedSprite, self).__init__()
+        super(AnimatedSprite, self).__init__() #everything below is specific to AnimatedSprite class
 
         size = (1200, 800)  # This should match the size of the images.
 
