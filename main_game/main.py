@@ -56,8 +56,8 @@ def ball_animation():
     launcher_copy = pygame.transform.rotate(launcher, -1 * ball_angle)
     screen.blit(launcher_copy, (screen_width / 120 * 27 - int(launcher_copy.get_width() / 4), screen_height / 120 * 95 - int(launcher_copy.get_height() /2)))
 
-    text = font.render("Angle " + "{:.2f}".format(-1 * ball_angle), 30, (200,0,0))
-    text1 = font.render("Velocity " + "{:.2f}".format(ball_velocity), 30, (200,0,0))
+    text = font.render("Angle " + "{:.0f}".format(-1 * ball_angle), 30, (200,0,0))
+    text1 = font.render("Velocity " + "{:.1f}".format(ball_velocity), 30, (200,0,0))
     textlives = font.render("Lives Left: " + str(lives), 30, (200,0,0))
     screen.blit(textlives, (screen_width * 6/8, screen_height * 1/12))
     screen.blit(text1, (screen_width/6, screen_height/8))
@@ -317,13 +317,13 @@ def main():
         # Key Actions
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_DOWN:
-                    ball_angle_increment += 0.2
+                    ball_angle_increment += 1
                 if event.key == pygame.K_UP:
-                    ball_angle_increment -= 0.2
+                    ball_angle_increment -= 1
                 if event.key == pygame.K_LEFT:
-                    ball_velocity_increment -= 0.1
+                    ball_velocity_increment -= 0.5
                 if event.key == pygame.K_RIGHT:
-                    ball_velocity_increment += 0.1
+                    ball_velocity_increment += 0.5
                 if event.key == pygame.K_RETURN:
                     if ball_speed_x == 0 or ball_speed_y == 0:
                         ball_speed_x = ball_velocity * math.cos(ball_angle * math.pi/180)
