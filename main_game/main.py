@@ -13,22 +13,33 @@ pygame.init()
 
 screen_width = 800
 screen_height = 600
+screen = pygame.display.set_mode()
 bg_color = (255, 255, 255)
+
 home_image = pygame.image.load("../Assets/Foundation (d2) - Copy/57.jpg")
 screen = pygame.display.set_mode((screen_width, screen_height))
 FPS = 57
 i = 35
+ball_initial_pos = (0, 200, 200)
+'''
+backgrounds = ["../Assets/Challenge Room1.jpg", "../Assets/JupiterChallengeRoom.png", "../Assets/MarsChallengeRoom.jpg"]
+background_games = ['../Assets/Challenge Room1(game scene).jpg', "../Assets/JupiterChallengeRoom(Game Scene).png", "../Assets/MarsChallengeRoom(Game Scene).jpg"]
+gs = [9.8, 24.79, 3.711]
+k = 0  # index for above lists
 
-screen = pygame.display.set_mode()
+backgrounds_dooropen = ["../Assets/Challenge Room1(Door1Open).jpg", "../Assets/JupiterChallengeRoom(Door1Open).png", "../Assets/MarsChallengeRoom(Door1Open).jpg"]
+l = 0  # index for background_dooropen list (different from k)
+'''
+
 play = pygame.image.load("../Assets/Buttons/Play-Button.png").convert_alpha()
 play_button = pygame.Rect(325, 500, 150, 50)
-#play = Buttons((325, 250))
-#play.load_image("/Users/mohitmotwani/Documents/GitHub/cern_webfest/assets/Buttons/Play-Button.png")
+
 clock = pygame.time.Clock()
 
 
 def completed():
     global background, player_x, walkcount
+    global background_game, gravity
     #background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
     if walkcount + 1 >= 27:
         walkcount = 0
@@ -43,7 +54,12 @@ def completed():
     screen.blit(door_frame, (screen_width * 46 / 100, screen_height * 66 / 100))
     player_x += 1.5
     walkcount += 1
+    background = pygame.image.load('../Assets/JupiterChallengeRoom.png')
+    background_game = pygame.image.load('../Assets/JupiterChallengeRoom(Game Scene).png')
+    gravity = 24.79
+
     pygame.display.update()
+    
 
 
 def ball_animation():
@@ -151,7 +167,7 @@ ball = pygame.Rect(screen_width / 120 * 30.4,screen_height / 80 * 64,15 ,15)
 line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 
 launcher = pygame.image.load('../Assets/Projectile-Launcher.png').convert_alpha()
-#launcher.set_colorkey((0,0,0))
+
 background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
 background_game = pygame.image.load('../Assets/Challenge Room1(game scene).jpg')
 door_frame = pygame.image.load('../Assets/DoorFrame.png')
