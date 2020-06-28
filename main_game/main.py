@@ -28,11 +28,25 @@ clock = pygame.time.Clock()
 
 
 def completed():
-    global background
-    background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
+    global background, player_x, walkcount
+    #background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
+    if walkcount + 1 >= 27:
+        walkcount = 0
+    screen.blit(background, (0,0))
+    screen.blit(launcher, (screen_width / 120 * 27 - int(launcher.get_width() / 4), screen_height / 120 * 95 - int(launcher.get_height() /2)))
+    screen.blit(background, (0,0))
+    screen.blit(launcher, (screen_width / 120 * 27 - int(launcher.get_width() / 4), screen_height / 120 * 95 - int(launcher.get_height() /2)))
+    screen.blit(target, (screen_width * i/48, screen_height * 36/40))
+    screen.blit(text_launcher, (screen_width *2 / 6, screen_height/8))
+    screen.blit(player_walking [walkcount//7], (player_x, player_y))
+    screen.blit(door_frame, (screen_width * 46 / 100, screen_height * 66 / 100))
+    player_x += 1.5
+    walkcount += 1
+    pygame.display.update()
+
 
 def ball_animation():
-    global ball_speed_x, ball_speed_y, ball_angle, lives, i
+    global ball_speed_x, ball_speed_y, ball_angle, lives, i, player_x, background
     screen.fill(bg_color)
     screen.blit(background, (0,0))
     screen.blit(target, (screen_width * i/48, screen_height * 36/40))
@@ -62,7 +76,9 @@ def ball_animation():
     if ball.colliderect(target_rect):
         ball_speed_x = 0
         ball_speed_y = 0
-        completed()
+        while player_x < 700:    
+            background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
+            completed()
     if ball.colliderect(wall):
         ball_speed_x = 0
         ball_speed_y = 0
@@ -134,6 +150,7 @@ line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 launcher = pygame.image.load('../Assets/Projectile-Launcher.png').convert_alpha()
 #launcher.set_colorkey((0,0,0))
 background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
+door_frame = pygame.image.load('../Assets/DoorFrame.png')
 
 player = pygame.image
 
@@ -335,7 +352,7 @@ def main():
 
             launcher_copy = pygame.transform.rotate(launcher, -1 * ball_angle)
             screen.blit(launcher_copy, (screen_width / 120 * 27 - int(launcher_copy.get_width() / 4), screen_height / 120 * 95 - int(launcher_copy.get_height() /2)))  
-            # if background == "../Assets/Challenge Room1(Door1Open).jpg":
+            
 
 
             '''
