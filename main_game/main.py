@@ -163,7 +163,7 @@ ball_speed_y = 0
 ball_angle_increment = 0
 ball_angle = 0
 ball_velocity_increment = 0
-ball_velocity = 1
+ball_velocity = 7
 gravity = 9.8
 lives = 3
 
@@ -317,13 +317,13 @@ def main():
         # Key Actions
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_DOWN:
-                    ball_angle_increment += 1
+                    ball_angle_increment += 0.02
                 if event.key == pygame.K_UP:
-                    ball_angle_increment -= 1
+                    ball_angle_increment -= 0.02
                 if event.key == pygame.K_LEFT:
-                    ball_velocity_increment -= 0.5
+                    ball_velocity_increment -= 0.01
                 if event.key == pygame.K_RIGHT:
-                    ball_velocity_increment += 0.5
+                    ball_velocity_increment += 0.01
                 if event.key == pygame.K_RETURN:
                     if ball_speed_x == 0 or ball_speed_y == 0:
                         ball_speed_x = ball_velocity * math.cos(ball_angle * math.pi/180)
