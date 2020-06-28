@@ -46,9 +46,9 @@ def completed():
 
 
 def ball_animation():
-    global ball_speed_x, ball_speed_y, ball_angle, lives, i, player_x, background
+    global ball_speed_x, ball_speed_y, ball_angle, lives, i, player_x, background, background_game
     screen.fill(bg_color)
-    screen.blit(background, (0,0))
+    screen.blit(background_game, (0,0))
     screen.blit(target, (screen_width * i/48, screen_height * 36/40))
     target_rect = pygame.Rect(screen_width * i/48, screen_height * 69/72, target.get_width(), 2)
     pygame.draw.ellipse(screen, (0,200,200), ball)
@@ -150,6 +150,7 @@ line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 launcher = pygame.image.load('../Assets/Projectile-Launcher.png').convert_alpha()
 #launcher.set_colorkey((0,0,0))
 background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
+background_game = pygame.image.load('../Assets/Challenge Room1(game scene).jpg')
 door_frame = pygame.image.load('../Assets/DoorFrame.png')
 
 player = pygame.image
@@ -163,7 +164,7 @@ ball_speed_y = 0
 ball_angle_increment = 0
 ball_angle = 0
 ball_velocity_increment = 0
-ball_velocity = 1
+ball_velocity = 7
 gravity = 9.8
 lives = 3
 
