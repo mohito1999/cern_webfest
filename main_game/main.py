@@ -38,6 +38,7 @@ def completed():
     screen.blit(launcher, (screen_width / 120 * 27 - int(launcher.get_width() / 4), screen_height / 120 * 95 - int(launcher.get_height() /2)))
     screen.blit(target, (screen_width * i/48, screen_height * 36/40))
     screen.blit(text_launcher, (screen_width *2 / 6, screen_height/8))
+    screen.blit(astronaut, (screen_width * 4/6, screen_height / 60 *39))
     screen.blit(player_walking [walkcount//7], (player_x, player_y))
     screen.blit(door_frame, (screen_width * 46 / 100, screen_height * 66 / 100))
     player_x += 1.5
@@ -50,6 +51,7 @@ def ball_animation():
     screen.fill(bg_color)
     screen.blit(background_game, (0,0))
     screen.blit(target, (screen_width * i/48, screen_height * 36/40))
+    screen.blit(astronaut, (screen_width * 4/6, screen_height / 60 *39))
     target_rect = pygame.Rect(screen_width * i/48, screen_height * 69/72, target.get_width(), 2)
     pygame.draw.ellipse(screen, (0,200,200), ball)
     pygame.draw.rect(screen, (0,0,0), line)
@@ -120,6 +122,7 @@ def player_animation():
     screen.blit(launcher, (screen_width / 120 * 27 - int(launcher.get_width() / 4), screen_height / 120 * 95 - int(launcher.get_height() /2)))
     screen.blit(target, (screen_width * i/48, screen_height * 36/40))
     screen.blit(text_launcher, (screen_width *2 / 6, screen_height/8))
+    screen.blit(astronaut, (screen_width * 4/6, screen_height / 60 *39))
     if walkcount + 1 >= 27:
         walkcount = 0
     if walking:
@@ -152,6 +155,7 @@ launcher = pygame.image.load('../Assets/Projectile-Launcher.png').convert_alpha(
 background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
 background_game = pygame.image.load('../Assets/Challenge Room1(game scene).jpg')
 door_frame = pygame.image.load('../Assets/DoorFrame.png')
+astronaut = pygame.image.load('../Assets/astronaut instructor.png')
 
 player = pygame.image
 
