@@ -16,23 +16,23 @@ screen_height = 600
 screen = pygame.display.set_mode()
 bg_color = (255, 255, 255)
 
-home_image = pygame.image.load("../Assets/Foundation (d2) - Copy/57.jpg")
+home_image = pygame.image.load("57.jpg")
 screen = pygame.display.set_mode((screen_width, screen_height))
 FPS = 57
 i = 35
 j = 1
 ball_initial_pos = (0, 200, 200)
 '''
-backgrounds = ["../Assets/Challenge Room1.jpg", "../Assets/JupiterChallengeRoom.png", "../Assets/MarsChallengeRoom.jpg"]
-background_games = ['../Assets/Challenge Room1(game scene).jpg', "../Assets/JupiterChallengeRoom(Game Scene).png", "../Assets/MarsChallengeRoom(Game Scene).jpg"]
+backgrounds = ["Challenge Room1.jpg", "JupiterChallengeRoom.png", "MarsChallengeRoom.jpg"]
+background_games = ['Challenge Room1(game scene).jpg', "JupiterChallengeRoom(Game Scene).png", "MarsChallengeRoom(Game Scene).jpg"]
 gs = [9.8, 24.79, 3.711]
 k = 0  # index for above lists
 
-backgrounds_dooropen = ["../Assets/Challenge Room1(Door1Open).jpg", "../Assets/JupiterChallengeRoom(Door1Open).png", "../Assets/MarsChallengeRoom(Door1Open).jpg"]
+backgrounds_dooropen = ["Challenge Room1(Door1Open).jpg", "JupiterChallengeRoom(Door1Open).png", "MarsChallengeRoom(Door1Open).jpg"]
 l = 0  # index for background_dooropen list (different from k)
 '''
 
-play = pygame.image.load("../Assets/Buttons/Play-Button.png").convert_alpha()
+play = pygame.image.load("Play-Button.png").convert_alpha()
 play_button = pygame.Rect(325, 500, 150, 50)
 
 clock = pygame.time.Clock()
@@ -41,7 +41,7 @@ clock = pygame.time.Clock()
 def completed():
     global background, player_x, walkcount
     global background_game, gravity
-    #background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
+    #background = pygame.image.load('Challenge Room1(Door1Open).jpg')
     if walkcount + 1 >= 27:
         walkcount = 0
     screen.blit(background, (0,0))
@@ -55,8 +55,8 @@ def completed():
     screen.blit(door_frame, (screen_width * 46 / 100, screen_height * 66 / 100))
     player_x += 1.5
     walkcount += 1
-    background = pygame.image.load('../Assets/JupiterChallengeRoom.png')
-    background_game = pygame.image.load('../Assets/JupiterChallengeRoom(Game Scene).png')
+    background = pygame.image.load('JupiterChallengeRoom.png')
+    background_game = pygame.image.load('JupiterChallengeRoom(Game Scene).png')
     gravity = 24.79
     
 
@@ -100,7 +100,7 @@ def ball_animation():
         ball.bottom = screen_height / 80 * 64
         ball.left = screen_width / 120 * 30.4
         while player_x < 700:    
-            background = pygame.image.load('../Assets/Challenge Room1(Door1Open).jpg')
+            background = pygame.image.load('Challenge Room1(Door1Open).jpg')
             completed()
     if ball.colliderect(wall):
         ball_speed_x = 0
@@ -209,19 +209,19 @@ def player_animation():
     pygame.display.update()
 
 
-target = pygame.image.load('../Assets/Target(1).png')
+target = pygame.image.load('Target(1).png')
 target_rect = pygame.Rect(screen_width * i/48, screen_height * 70/72, target.get_width() - 2, 1)
 
 wall = pygame.Rect(screen_width / 120 * 60, screen_height * 66/100, screen_width / 120 * 5, screen_height * 34/100)
 ball = pygame.Rect(screen_width / 120 * 30.4,screen_height / 80 * 64,15 ,15)
 line = pygame.Rect(screen_width / 120 * 28,screen_height / 80 * 65,50, 3)
 
-launcher = pygame.image.load('../Assets/Projectile-Launcher.png').convert_alpha()
+launcher = pygame.image.load('Projectile-Launcher.png').convert_alpha()
 
-background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
-background_game = pygame.image.load('../Assets/Challenge Room1(game scene).jpg')
-door_frame = pygame.image.load('../Assets/DoorFrame.png')
-astronaut = pygame.image.load('../Assets/astronaut instructor.png')
+background = pygame.image.load('ChallengeRoom1.jpg')
+background_game = pygame.image.load('Challenge Room1(game scene).jpg')
+door_frame = pygame.image.load('DoorFrame.png')
+astronaut = pygame.image.load('astronaut instructor.png')
 
 player = pygame.image
 
@@ -238,24 +238,24 @@ ball_velocity = 7
 gravity = 9.8
 lives = 3
 
-speech_1 = pygame.image.load("../Assets/intro_text/IntroText(1).png")
-speech_2 = pygame.image.load("../Assets/intro_text/IntroText(1).png")
-speech_3 = pygame.image.load("../Assets/intro_text/IntroText(3).png")
-speech_4 = pygame.image.load("../Assets/intro_text/IntroText(4).png")
-speech_5 = pygame.image.load("../Assets/intro_text/IntroText(5).png")
-speech_6 = pygame.image.load("../Assets/intro_text/IntroText(6).png")
+speech_1 = pygame.image.load("IntroText(1).png")
+speech_2 = pygame.image.load("IntroText(1).png")
+speech_3 = pygame.image.load("IntroText(3).png")
+speech_4 = pygame.image.load("IntroText(4).png")
+speech_5 = pygame.image.load("IntroText(5).png")
+speech_6 = pygame.image.load("IntroText(6).png")
 
-sound1 = pygame.mixer.Sound('../Assets/voice_overs_wav/Part-1.wav')
-sound2 = pygame.mixer.Sound('../Assets/voice_overs_wav/Part-2.wav')
-sound3 = pygame.mixer.Sound('../Assets/voice_overs_wav/Part-3.wav')
-sound4 = pygame.mixer.Sound('../Assets/voice_overs_wav/Part-4_1.wav')
-sound5 = pygame.mixer.Sound('../Assets/voice_overs_wav/Part-5_1.wav')
-
-
+sound1 = pygame.mixer.Sound('Part-1.wav')
+sound2 = pygame.mixer.Sound('Part-2.wav')
+sound3 = pygame.mixer.Sound('Part-3.wav')
+sound4 = pygame.mixer.Sound('Part-4_1.wav')
+sound5 = pygame.mixer.Sound('Part-5_1.wav')
 
 
-player_walking = [pygame.image.load('../Assets/charv2(1).png'), pygame.image.load('../Assets/charv2(2).png'), pygame.image.load('../Assets/charv2(3).png'), pygame.image.load('../Assets/charv2(4).png')]
-player_standing = pygame.image.load('../Assets/charv2(5).png')
+
+
+player_walking = [pygame.image.load('charv2(1).png'), pygame.image.load('charv2(2).png'), pygame.image.load('charv2(3).png'), pygame.image.load('charv2(4).png')]
+player_standing = pygame.image.load('charv2(5).png')
 player_width = 110
 player_height = 160
 player_vel = 5
@@ -285,22 +285,21 @@ font = pygame.font.SysFont("comicsans", 30, True)
 '''
 
 
-def load_images(path):
+def load_images():
     images = []
-    imagelist = sorted(os.listdir(path))
     imagelist = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',  '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', 
      '20.jpg', '21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg',  
     '30.jpg', '31.jpg', '32.jpg', '33.jpg', '34.jpg', '35.jpg', '36.jpg', '37.jpg', '38.jpg', '39.jpg', '40.jpg', 
     '41.jpg', '42.jpg', '43.jpg', '44.jpg', '45.jpg', '46.jpg', '47.jpg', '48.jpg', '49.jpg', '50.jpg', '51.jpg', 
     '52.jpg', '53.jpg', '54.jpg', '55.jpg', '56.jpg', '57.jpg']
     for file_name in imagelist:
-        image = pygame.image.load(path + os.sep + file_name).convert()
+        image = pygame.image.load(file_name).convert()
         images.append(image)
     return images
 
 
 def main():
-    images = load_images(path="../Assets/Foundation (d2) - copy")  # Make sure to provide the relative or full path to the images directory.
+    images = load_images()  # Make sure to provide the relative or full path to the images directory.
     player = AnimatedSprite(position=(0, 0), images=images)
     all_sprites = pygame.sprite.Group(player)  # Creates a sprite group and adds 'player' to it.
 

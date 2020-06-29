@@ -9,11 +9,11 @@ screen_width = 800
 screen_height = 600
 i=35
 
-launcher = pygame.image.load('../Assets/Projectile Launcher.png')
+launcher = pygame.image.load('Projectile Launcher.png')
 #launcher.set_colorkey((0,0,0))
-background = pygame.image.load('../Assets/ChallengeRoom1.jpg')
+background = pygame.image.load('ChallengeRoom1.jpg')
 
-target = pygame.image.load('../Assets/Target(1).png')
+target = pygame.image.load('Target(1).png')
 target_rect = pygame.Rect(screen_width * i/48, screen_height * 70/72, target.get_width() - 2, 1)
 
 wall = pygame.Rect(screen_width / 120 * 60, screen_height * 66/100, screen_width / 120 * 5, screen_height * 34/100)
